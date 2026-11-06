@@ -25,6 +25,7 @@
 
 .students-page__hero h1 {
   margin: 8px 0 12px;
+  line-height: 1.1; /* root uses a fixed 26px line-height, too small for a 56px heading */
 }
 
 .students-page__subtitle {
@@ -51,6 +52,7 @@
 
 .students-page__stats strong {
   font-size: 28px;
+  line-height: 1.2;
   font-weight: 600;
   color: var(--text-h);
 }
@@ -171,6 +173,7 @@
 .students-page__grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-auto-rows: 1fr; /* every row as tall as the tallest card */
   gap: 20px;
 }
 

@@ -128,18 +128,20 @@ function StudentCard({
         <span style={{ width: `${Math.min(Math.max(attendance, 0), 100)}%` }} />
       </div>
 
-      {skills.length > 0 && (
-        <ul className="student-card__skills" aria-label="Skills">
-          {visibleSkills.map((skill) => (
-            <li key={skill}>{skill}</li>
-          ))}
-          {hiddenCount > 0 && (
-            <li className="student-card__skills-more" title={skills.slice(MAX_SKILLS).join(', ')}>
-              +{hiddenCount}
-            </li>
-          )}
-        </ul>
-      )}
+      {/* Always rendered (even when empty) so every card keeps the same layout */}
+      <ul className="student-card__skills" aria-label="Skills">
+        {skills.length === 0 && <li className="student-card__skills-empty">No skills listed</li>}
+        {visibleSkills.map((skill) => (
+          <li key={skill} title={skill}>
+            {skill}
+          </li>
+        ))}
+        {hiddenCount > 0 && (
+          <li className="student-card__skills-more" title={skills.slice(MAX_SKILLS).join(', ')}>
+            +{hiddenCount}
+          </li>
+        )}
+      </ul>
 
       <footer className="student-card__actions">
         {email && (
