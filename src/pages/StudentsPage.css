@@ -1,0 +1,244 @@
+.students-page {
+  padding: 48px 32px 64px;
+  text-align: left;
+}
+
+@media (max-width: 640px) {
+  .students-page {
+    padding: 32px 16px 48px;
+  }
+}
+
+/* Hero */
+.students-page__hero {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.students-page__eyebrow {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.students-page__hero h1 {
+  margin: 8px 0 12px;
+}
+
+.students-page__subtitle {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* Summary stats */
+.students-page__stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.students-page__stats > div {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--social-bg);
+}
+
+.students-page__stats strong {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.students-page__stats span {
+  font-size: 14px;
+}
+
+@media (max-width: 640px) {
+  .students-page__stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Toolbar */
+.students-page__toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.students-page__controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.students-page__selects {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+@media (max-width: 640px) {
+  .students-page__selects,
+  .students-page__selects .field {
+    width: 100%;
+  }
+}
+
+.field {
+  font: inherit;
+  font-size: 15px;
+  padding: 10px 14px;
+  color: var(--text-h);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.field:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.field--search {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  font: inherit;
+  font-size: 14px;
+  padding: 6px 14px;
+  color: var(--text-h);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.chip:hover {
+  border-color: var(--accent-border);
+}
+
+.chip.is-active {
+  color: var(--accent);
+  background: var(--accent-bg);
+  border-color: var(--accent-border);
+}
+
+.chip:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.toggle input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--accent);
+}
+
+.students-page__count {
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+/* Grid */
+.students-page__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.students-page__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 48px 16px;
+  text-align: center;
+  border: 1px dashed var(--border);
+  border-radius: 16px;
+}
+
+.students-page__empty .btn {
+  flex: none;
+}
+
+/* Profile modal */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(3px);
+  z-index: 10;
+}
+
+.modal {
+  width: 100%;
+  max-width: 420px;
+  padding: 24px;
+  text-align: left;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+.modal__sub {
+  font-family: var(--mono);
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+
+.modal__list {
+  margin: 0 0 20px;
+  padding: 0;
+  list-style: none;
+}
+
+.modal__list li {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 8px;
+  padding: 8px 0;
+  font-size: 15px;
+  color: var(--text-h);
+  border-bottom: 1px solid var(--border);
+  word-break: break-word;
+}
+
+.modal__list span {
+  color: var(--text);
+}
+
+.modal .btn {
+  width: 100%;
+}
