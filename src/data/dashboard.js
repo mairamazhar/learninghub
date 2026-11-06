@@ -24,6 +24,12 @@ export const courseCapacity = [
   { code: 'DES', name: 'UI/UX Design', enrolled: 174, capacity: 200 },
   { code: 'PSY', name: 'Psychology', enrolled: 142, capacity: 220 },
   { code: 'MED', name: 'Public Health', enrolled: 96, capacity: 180 },
+  { code: 'LAW', name: 'Law', enrolled: 158, capacity: 175 },
+  { code: 'ARC', name: 'Architecture', enrolled: 119, capacity: 150 },
+  { code: 'DS', name: 'Data Science', enrolled: 231, capacity: 240 },
+  { code: 'ECO', name: 'Economics', enrolled: 127, capacity: 200 },
+  { code: 'ENG', name: 'English Literature', enrolled: 83, capacity: 160 },
+  { code: 'MKT', name: 'Marketing', enrolled: 205, capacity: 260 },
 ]
 
 export const pendingApplications = [

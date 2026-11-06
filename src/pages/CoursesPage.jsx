@@ -1,5 +1,22 @@
 import { courseCapacity } from '../data/dashboard.js'
+import DataTable from '../components/ui/DataTable.jsx'
 import './DashboardPage.css'
+
+const rows = courseCapacity.map((c) => ({ ...c, seatsLeft: c.capacity - c.enrolled }))
+
+const columns = [
+  { key: 'name', label: 'Program', sortable: true, render: (r) => <strong>{r.name}</strong> },
+  { key: 'code', label: 'Code', sortable: true },
+  { key: 'enrolled', label: 'Enrolled', sortable: true, numeric: true },
+  { key: 'capacity', label: 'Capacity', sortable: true, numeric: true },
+  {
+    key: 'seatsLeft',
+    label: 'Seats left',
+    sortable: true,
+    numeric: true,
+    render: (r) => (r.seatsLeft <= 20 ? <span className="pill pill--review">{r.seatsLeft} left</span> : r.seatsLeft),
+  },
+]
 
 function CoursesPage() {
   return (
@@ -12,30 +29,7 @@ function CoursesPage() {
       </header>
 
       <section className="card" aria-label="Courses">
-        <div className="table-wrap">
-          <table className="table">
-            <thead>
-              <tr>
-                <th scope="col">Program</th>
-                <th scope="col">Code</th>
-                <th scope="col">Enrolled</th>
-                <th scope="col">Capacity</th>
-                <th scope="col">Seats left</th>
-              </tr>
-            </thead>
-            <tbody>
-              {courseCapacity.map((c) => (
-                <tr key={c.code}>
-                  <td><strong>{c.name}</strong></td>
-                  <td>{c.code}</td>
-                  <td>{c.enrolled}</td>
-                  <td>{c.capacity}</td>
-                  <td>{c.capacity - c.enrolled}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <DataTable columns={columns} rows={rows} rowKey="code" caption="Courses and capacity" initialSort={{ key: 'name', dir: 'asc' }} />
       </section>
     </div>
   )

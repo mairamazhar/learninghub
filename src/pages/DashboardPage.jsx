@@ -172,10 +172,10 @@ function DashboardPage() {
         <section className="card" aria-labelledby="cap-h">
           <header className="card__head">
             <h2 id="cap-h">Course capacity</h2>
-            <span className="card__meta">{nf.format(filled)} / {nf.format(seats)} seats</span>
+            <span className="card__meta">Top 6 · {nf.format(filled)} / {nf.format(seats)} seats overall</span>
           </header>
           <ul className="bars">
-            {courseCapacity.map((c) => {
+            {courseCapacity.toSorted((a, b) => b.enrolled - a.enrolled).slice(0, 6).map((c) => {
               const pct = Math.round((c.enrolled / c.capacity) * 100)
               return (
                 <li key={c.code}>
